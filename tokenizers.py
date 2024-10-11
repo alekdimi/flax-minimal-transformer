@@ -1,8 +1,9 @@
+import base
 import dataclasses
 import tiktoken
 
 @dataclasses.dataclass
-class TokenizerConfig:
+class TokenizerConfig(base.MakeableConfig[tiktoken.Encoding]):
     model: str
 
     def make(self) -> tiktoken.Encoding:

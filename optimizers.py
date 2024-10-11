@@ -1,3 +1,4 @@
+import base
 import dataclasses
 import optax
 import enum
@@ -8,7 +9,7 @@ class Optimizer(enum.Enum):
 
 
 @dataclasses.dataclass
-class OptimizerConfig:
+class OptimizerConfig(base.MakeableConfig[optax.GradientTransformation]):
     optimizer: Optimizer
     learning_rate: float
 
