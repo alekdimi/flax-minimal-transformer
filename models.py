@@ -1,4 +1,5 @@
 import base
+import dataclasses
 import flax.linen as nn
 import jax
 import jax.numpy as jnp
@@ -97,18 +98,3 @@ class Transformer(nn.Module):
             x = block(x)
         x = self.token_embedder.attend(x)
         return x
-
-
-class TransformerConfig(base.MakeableConfig[Transformer]):
-    vocab_size: int
-    d_model: int
-    sequence_length: int
-    num_blocks: int
-
-    def make(self) -> Transformer:
-        return Transformer(
-            vocab_size=self.vocab_size,
-            sequence_length=self.sequence_length,
-            d_model=self.d_model,
-            num_blocks=self.num_blocks,
-        )
