@@ -3,6 +3,7 @@ import dataclasses
 import optax
 import enum
 
+
 class Optimizer(enum.Enum):
     ADAM = "adam"
     SGD = "sgd"

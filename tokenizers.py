@@ -2,6 +2,7 @@ import base
 import dataclasses
 import tiktoken
 
+
 @dataclasses.dataclass
 class TokenizerConfig(base.MakeableConfig[tiktoken.Encoding]):
     model: str
